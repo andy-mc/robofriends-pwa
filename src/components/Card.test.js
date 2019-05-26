@@ -1,9 +1,13 @@
+import { shallow } from "enzyme";
 import React from "react";
-import { shallow, mount, render } from "enzyme";
 import Card from "./Card";
 
 describe("Card", () => {
-  it("", () => {
+  it("expect to render Card component", () => {
     expect(shallow(<Card />).length).toBe(1);
+  });
+
+  it("expect to match Card snapShot", () => {
+    expect(shallow(<Card />)).toMatchSnapshot();
   });
 });
