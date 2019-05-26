@@ -4,7 +4,7 @@ import CounterButton from "./CounterButton";
 
 describe("CounterButton", () => {
   it("updates when changing state or props", () => {
-    const wrapper = shallow(<CounterButton />);
+    const wrapper = shallow(<CounterButton color="blue" />);
     expect(wrapper.state()).toEqual({ count: 1 });
 
     const shouldUpdate = wrapper
@@ -18,15 +18,14 @@ describe("CounterButton", () => {
     expect(shouldNotUpdate).toBe(false);
   });
 
-  it("expect to match CounterButton snapShot", () => {
-    const wrapper = shallow(<CounterButton />);
-    wrapper.find("button").simulate("click");
-    wrapper.find("button").simulate("click");
+  it("correctly increments the counter", () => {
+    const wrapper = shallow(<CounterButton color="blue" />);
+    wrapper.find("[id='counter']").simulate("click");
 
-    expect(shallow(<CounterButton />).state()).toEqual({ count: 1 });
+    expect(wrapper.state()).toEqual({ count: 2 });
   });
 
-  it("expect to match CounterButton snapShot", () => {
-    expect(shallow(<CounterButton />)).toMatchSnapshot();
+  it("expect CounterButton snapShot", () => {
+    expect(shallow(<CounterButton color="blue" />)).toMatchSnapshot();
   });
 });
