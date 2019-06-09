@@ -20,4 +20,8 @@ describe("MainPage", () => {
   it("render MainPage without crashing", () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it("should filter robots", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });
