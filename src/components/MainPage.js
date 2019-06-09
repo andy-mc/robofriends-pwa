@@ -7,12 +7,6 @@ import ErrorBoundry from "../components/ErrorBoundry";
 import Header from "../components/Header";
 
 class MainPage extends Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 1
-    };
-  }
   componentDidMount() {
     this.props.onRequestRobots();
   }
@@ -24,7 +18,7 @@ class MainPage extends Component {
     });
     return (
       <div className="tc">
-        <Header count={this.state.count} />
+        <Header />
         <SearchBox searchChange={onSearchChange} />
         <Scroll>
           {isPending ? (
