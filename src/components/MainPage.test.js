@@ -3,15 +3,21 @@ import React from "react";
 import MainPage from "./MainPage";
 
 describe("MainPage", () => {
-  fit("expect to render MainPage component", () => {
-    const wrapper = shallow(
-      <MainPage
-        robots={[]}
-        searchField={""}
-        onRequestRobots={() => {}}
-        onSearchChange={() => {}}
-        isPending={false}
-      />
-    );
+  let wrapper;
+
+  beforeEach(() => {
+    const mockProps = {
+      robots: [],
+      searchField: "",
+      onRequestRobots: jest.fn(),
+      onSearchChange: jest.fn(),
+      isPending: false
+    };
+
+    wrapper = shallow(<MainPage {...mockProps} />);
+  });
+
+  it("render MainPage without crashing", () => {
+    expect(wrapper).toMatchSnapshot();
   });
 });
